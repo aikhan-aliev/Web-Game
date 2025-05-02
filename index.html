@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Kingdom's Railway Network</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main Menu -->
+  <div id="menu" class="screen">
+    <h1>RAILWAYS</h1>
+    <form id="menu-form">
+      <label for="player-name">WHO ARE YOU?</label>
+      <input type="text" id="player-name" placeholder="Enter your name" required>
+
+      <p>SET THE DIFFICULTY!</p>
+      <div class="difficulty-options">
+        <button type="button" id="easy" class="difficulty-btn" onclick="setDifficulty('easy')">5 x 5<br>Easy</button>
+        <button type="button" id="hard" class="difficulty-btn" onclick="setDifficulty('hard')">7 x 7<br>Hard</button>
+      </div>
+
+      <button type="button" class="rules-btn" onclick="showDescription()">RULES</button>
+      <button type="button" class="start-game-btn" onclick="startGame()">START GAME</button>
+    </form>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game" class="screen hidden">
+    <h2>Player: <span id="player-display"></span></h2>
+    <h3>Time Elapsed: <span id="timer">0:00</span></h3>
+    
+    <!-- Grid -->
+    <div id="game-grid-container">
+      <div id="overlay-grid" class="grid"></div>
+    </div>
+
+    <button onclick="goToMenu()" class="back-btn">Back to Menu</button>
+    <button onclick="stopGame()" class="stop-game-btn">Finish</button>
+  </div>
+
+  <div id="end-screen" class="popup hidden">
+    <h2>Game Completed</h2>
+    <p id="completion-time"></p>
+    
+    <button onclick="goToMenu()">Return to Menu</button>
+  </div>
+
+  <!-- Description -->
+  <div id="description-popup" class="popup hidden">
+    <h2>Game Description</h2>
+    <p>The goal is to create a continuous railway line connecting all points on a square grid.</p>
+    <ul>
+      <li><strong>Empty Tile:</strong> Free track placement.</li>
+      <li><strong>Bridge:</strong> Straight tracks only.</li>
+      <li><strong>Mountain:</strong> Allows 90-degree turn.</li>
+      <li><strong>Oasis:</strong> Cannot be built.</li>
+    </ul>
+    <button type="button" onclick="closeDescription()">Close</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
